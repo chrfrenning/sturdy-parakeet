@@ -1,0 +1,35 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.gallery-container {
+    width: 80%;
+    max-width: 600px;
+}
+
+.photo-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.photo {
+    width: 100%;
+    display: block;
+}
+
+.navigation {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
