@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation Test</title>
+    <style>
+        @keyframes changeColorAndMove {
+            from {
+                background-color: blue;
+                transform: translateX(0);
+            }
+
+            to {
+                background-color: red;
+                transform: translateX(100px);
+            }
+        }
+
+        .element {
+            width: 100px;
+            height: 100px;
+            animation: changeColorAndMove 3s infinite alternate ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="element"></div>
+
+</body>
+</html>
