@@ -46,4 +46,15 @@ document.addEventListener('DOMContentLoaded', function() {
         touchendX = e.changedTouches[0].screenX;
         handleGesture();
     });
+    
+    document.getElementById('heartBtn').addEventListener('click', function() {
+        this.classList.add('animate__heartBeat');
+        
+        document.getElementById('heart').classList.toggle('fas');
+    });
+
+    document.getElementById('heartBtn').addEventListener('animationend', function() {
+        this.classList.remove('animate__heartBeat');
+    });
+
 });
