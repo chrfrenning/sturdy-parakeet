@@ -8,20 +8,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
+<body id="body">
 
-<div class="gallery-container">
-    <div class="photo-container" id="photoContainer">
-        <img src="./img/pexels-photo-1028225.jpg" alt="Photo" class="photo" id="currentPhoto">
+<div class="title-menu">
+    <img src="./gfx/logo.png" alt="App Logo" class="logo">
+    <h1 class="app-name">Nature@Couch</h1>
+</div>
+
+<div id="main-content" class="main-content">
+
+    <div class="gallery-container">
+        <div class="photo-container" id="photoContainer">
+            <img src="" alt="Photo" class="photo" id="currentPhoto">
+        </div>
+        <div class="navigation">
+            
+        </div>
+        <div>
+            
+        </div>
     </div>
-    <div class="navigation">
-        <button id="prevBtn">Previous</button>
-        <button id="nextBtn">Next</button>
-        <button id="heartBtn"><i id="heart" class="fa-regular fa-heart"></i></button>
-    </div>
-    <div>
-        
-    </div>
+
+</div>
+
+<div class="control-bar">
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Next</button>
+    <button id="heartBtn"><i id="heart" class="fa-regular fa-heart"></i></button>
+    <button id="saveBtn"><i id="save" class="fa-solid fa-download"></i></button>
 </div>
 
 <script src="app.js"></script>
