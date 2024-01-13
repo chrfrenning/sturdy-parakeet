@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let currentPhotoIndex = 0;
     photos = [];
-    hearts = new Array(1).fill(false);
+    hearts = [];
     const photoContainer = document.getElementById('main-content');
 
 
@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
         this.classList.add('animate__heartBeat');
 
         hearts[currentPhotoIndex] = !hearts[currentPhotoIndex];
+        
         displayHeart();
     });
 
