@@ -1,25 +1,33 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function () {
+
+    /* List of photos and hearts */
+
     let currentPhotoIndex = 0;
     photos = [];
     hearts = new Array(1).fill(false);
-
     const photoContainer = document.getElementById('main-content');
-    const currentPhotoImgElem = document.getElementById('currentPhoto');
-    const body = document.getElementById('body');
+
+
+
+    /* Load photos from photos.json */
 
     fetch('photos.json')
         .then(response => response.json())
         .then(data => {
             photos = data.photos;
             hearts = new Array(photos.length).fill(false);
-            
+
             currentPhotoIndex = 0;
-            //currentPhotoImgElem.src = photos[currentPhotoIndex];
+            changePhoto(0);
         })
         .catch(error => {
             console.error('Error loading photos:', error);
         });
+
+
+
+    /* Move to next/previous photo */
 
     function changePhoto(newIndex) {
         currentPhotoIndex = newIndex;
@@ -27,9 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentPhotoIndex > photos.length - 1) currentPhotoIndex = 0;
 
         displayHeart();
-        currentPhotoImgElem.style.setProperty('--animate-duration', '0.5s');
 
-        animationName = ['animate__animated', 'animate__fadeout'];
+        photoContainer.style.setProperty('--animate-duration', '0.3s');
         photoContainer.classList.add('animate__animated', 'animate__fadeOut');
 
         photoContainer.addEventListener('animationend', function () {
@@ -37,10 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             photoContainer.classList.add('animate__animated', 'animate__fadeIn');
 
-            //currentPhotoImgElem.src = photos[currentPhotoIndex];
-            
             document.getElementById('main-content').style.backgroundImage = `url(${photos[currentPhotoIndex]})`;
-            
 
             photoContainer.addEventListener('animationend', function () {
                 photoContainer.classList.remove('animate__animated', 'animate__fadeIn');
@@ -48,14 +52,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }, { once: true });
     }
 
-    document.getElementById('saveBtn').addEventListener('click', function () {
-        var element = document.createElement('a');
-        element.setAttribute('href', photos[currentPhotoIndex]);
-        element.setAttribute('download', 'image.jpg');
-        document.body.appendChild(element);
-        element.click();
-        document.body.removeChild(element);
-    });
+
+
+    /* Next and previous buttons */
 
     document.getElementById('nextBtn').addEventListener('click', function () {
         changePhoto(currentPhotoIndex + 1);
@@ -65,24 +64,13 @@ document.addEventListener('DOMContentLoaded', function () {
         changePhoto(currentPhotoIndex - 1);
     });
 
-    let touchstartX = 0;
-    let touchendX = 0;
 
-    function handleGesture() {
-        if (touchendX < touchstartX) changePhoto(currentPhotoIndex + 1);
-        if (touchendX > touchstartX) changePhoto(currentPhotoIndex - 1);
-    }
 
-    body.addEventListener('touchstart', e => {
-        touchstartX = e.changedTouches[0].screenX;
-    });
+    /* Hearts */
 
-    body.addEventListener('touchend', e => {
-        touchendX = e.changedTouches[0].screenX;
-        handleGesture();
-    });
+    heartBtn = document.getElementById('heartBtn');
 
-    document.getElementById('heartBtn').addEventListener('click', function () {
+    heartBtn.addEventListener('click', function () {
         this.classList.add('animate__heartBeat');
 
         hearts[currentPhotoIndex] = !hearts[currentPhotoIndex];
@@ -103,5 +91,45 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('heartBtn').addEventListener('animationend', function () {
         this.classList.remove('animate__heartBeat');
     });
+
+
+
+    /* Save photo to phone */
+
+    saveBtn = document.getElementById('saveBtn');
+
+    saveBtn.addEventListener('click', function () {
+        var element = document.createElement('a');
+        element.setAttribute('href', photos[currentPhotoIndex]);
+        element.setAttribute('download', 'image.jpg');
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+    });
+
+
+
+    /* Handling swipe gestures */
+
+    const body = document.getElementById('body');
+
+    let touchstartX = 0;
+    let touchendX = 0;
+
+    function handleGesture() {
+        if (touchendX < touchstartX) changePhoto(currentPhotoIndex + 1);
+        if (touchendX > touchstartX) changePhoto(currentPhotoIndex - 1);
+    }
+
+    body.addEventListener('touchstart', e => {
+        touchstartX = e.changedTouches[0].screenX;
+    });
+
+    body.addEventListener('touchend', e => {
+        touchendX = e.changedTouches[0].screenX;
+        handleGesture();
+    });
+
+
 
 });

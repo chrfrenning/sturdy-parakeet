@@ -1,4 +1,5 @@
-/* style.css */
+/* app.css */
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -8,6 +9,10 @@ body {
     margin: 0;
     padding: 0;
 }
+
+
+
+/* header */
 
 .title-menu {
     display: flex;
@@ -34,17 +39,7 @@ body {
     /* Additional styling for the app name */
 }
 
-.main-content {
-    padding-top: 50px; /* Adjust this value based on the total height of your title menu */
-    padding-bottom: 50px; /* Adjust this value based on the total height of your control bar */
-    /* Rest of your content styling */
-    min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
-    width: 100%; /* Ensure it takes the full width of the viewport */
-    background-image: url('./img/pexels-photo-3225517.jpg'); /* Replace with your image path */
-    background-size: cover;  /* Cover the entire area */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-}
+
 
 /* control bar */
 
@@ -67,33 +62,18 @@ body {
     /* Additional styling for buttons */
 }
 
-/* style.css */
 
-.gallery-container {
-    width: 80%;
-    max-width: 600px;
+
+/* image container */
+
+.main-content {
+    padding-top: 50px; /* Adjust this value based on the total height of your title menu */
+    padding-bottom: 50px; /* Adjust this value based on the total height of your control bar */
+    /* Rest of your content styling */
+    min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+    width: 100%; /* Ensure it takes the full width of the viewport */
+    background-image: url('./gfx/loading.png'); /* Replace with your image path */
+    background-size: cover;  /* Cover the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
 }
-
-.photo-container {
-    width: 100%;
-    overflow: hidden;
-}
-
-.photo {
-    width: 100%;
-    display: block;
-}
-
-.navigation {
-    text-align: center;
-    margin-top: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-}
-
-
-
