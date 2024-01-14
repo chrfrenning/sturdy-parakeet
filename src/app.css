@@ -19,7 +19,7 @@ body {
     align-items: center;
     justify-content: start;
     height: 40px;
-    background-color: #f0f0f0; /* Example background color */
+    background-color: #302F4d; /* Example background color */
     padding: 5px; /* Adjust padding as needed */
     position: fixed; /* Make the menu fixed */
     top: 0; /* Position at the top */
@@ -29,13 +29,14 @@ body {
 }
 
 .logo {
-    height: 30px; /* Adjust based on your logo */
+    height: 90px; /* Adjust based on your logo */
     margin-right: 10px; /* Space between logo and name */
 }
 
 .app-name {
     font-size: 18px; /* Adjust font size as needed */
     font-weight: bold;
+    color: #C9DBBA;
     /* Additional styling for the app name */
 }
 
@@ -60,6 +61,14 @@ body {
     padding: 10px 20px;
     font-size: 16px; /* Adjust font size as needed */
     /* Additional styling for buttons? */
+}
+
+#heartBtn {
+    background-color: #EEC0C6;
+}
+
+#saveBtn {
+    background-color: #C9DBBA;
 }
 
 
